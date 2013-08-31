@@ -1,4 +1,4 @@
 ping
 ====
 
-A rails service provide pinging to your host.
+A rails service pings your host.
