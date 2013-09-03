@@ -5,4 +5,4 @@
 		%li 
 			= link_to h.name, :action => 'show', :id => h.id
 			.ping
-				ping it
+				= link_to 'ping', host_ping_path(host_id: h.id), :action => 'ping'
