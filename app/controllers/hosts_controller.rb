@@ -9,6 +9,7 @@ class HostsController < ApplicationController
 	end
 
 	def ping
-		@host = Host.find(params[:id])
+		@host = Host.find(params[:host_id])
+		render :json => {'respond_ms'=>100}
 	end
 end
