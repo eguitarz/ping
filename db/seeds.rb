@@ -5,4 +5,4 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-hosts = Host.create([ {name:'www.yabyap.com', url:'http://www.yabyap.com'} ])
+hosts = Host.create([ {name:'www.google.com', url:'http://www.google.com'} ])
