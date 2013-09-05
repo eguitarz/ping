@@ -1,3 +1,8 @@
 .host-detail
 	.title
 		= @host.name
+	%ul	
+		- @host.ping_records.each do |p|
+			%li
+				= "#{p.response_ms} ms"
+				= "(##{p.response_code})"
