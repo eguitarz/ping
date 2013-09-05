@@ -19,6 +19,6 @@ class HostsController < ApplicationController
 		ping = @host.ping_records.create( :response_ms => duration.floor, :response_code => response.code)
 		ping.save!
 
-		render :json => {'respond_ms'=>duration.floor, 'response_code'=>response.code}
+		render :json => {'response_ms'=>duration.floor, 'response_code'=>response.code}
 	end
 end
