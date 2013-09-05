@@ -16,6 +16,9 @@ class HostsController < ApplicationController
 		response = Net::HTTP.get_response( URI(@host.url) )
 		duration = ( Time.now - start_at ) * 1000
 
+		ping = @host.ping_records.create( :response_ms => duration.floor, :response_code => response.code)
+		ping.save!
+
 		render :json => {'respond_ms'=>duration.floor, 'response_code'=>response.code}
 	end
 end
