@@ -7,3 +7,5 @@
 			.ping
 				= link_to 'ping', host_ping_path(host_id: h.id), :action => 'ping', :remote => true
 				.result
+					- ping = h.ping_records.last
+					= "last ping: #{ping.response_ms} ms (##{ping.response_code})"
