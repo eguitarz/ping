@@ -54,6 +54,7 @@ Ping::Application.routes.draw do
   #     resources :products
   #   end
   root 'hosts#index'
+  get 'ping_all' => 'hosts#ping_all'
   resources :hosts do
     get 'ping' => 'hosts#ping'
   end
