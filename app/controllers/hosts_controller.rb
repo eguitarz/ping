@@ -16,6 +16,14 @@ class HostsController < ApplicationController
 		render :json => response
 	end
 
+	def ping_all
+		@hosts = Host.all
+		@hosts.each do |h|
+			ping_host(h)
+		end
+		render :json => {:hosts => @hosts.count}
+	end
+
 	private 
 	def ping_host(host)
 		start_at = Time.now
