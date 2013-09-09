@@ -6,5 +6,5 @@
 			.item
 				= link_to h.name, :action => 'show', :id => h.id
 			.result
-				- ping = h.ping_records.last
+				- ping = h.ping_records.first
 				= "last: #{ping.response_ms} ms (##{ping.response_code})"
