@@ -1,12 +1,11 @@
 = link_to '<< back', :action => 'index'
-.host-detail
-	.title
-		= @host.name
-	%ul	
-		- @host.ping_records.each do |p|
-			%li
-				%span.ms
-					= "#{p.response_ms} ms"
-				= "(##{p.response_code})"
-				.time
-					= "#{p.created_at.strftime "%b %d, %a %H:%M:%S"}"
+.title
+	= @host.name
+%ul.host-detail
+	- @host.ping_records.each do |p|
+		%li
+			%span.ms
+				= "#{p.response_ms} ms"
+			= "(##{p.response_code})"
+			.time
+				= "#{p.created_at.strftime "%b %d, %a %H:%M:%S"}"
