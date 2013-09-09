@@ -1,19 +1,30 @@
+@import base
+
+ul.list
+	width: 60%
+	margin: auto
+	padding: 0
+	li
+		padding: 5px
+	.ping
+		display: inline-block
+		margin: 0 100px
+	.result
+		padding-top: 2px
+		font-size: 0.8em
+		color: lighten($grey, 20%)
+
 .host-detail
 	width: 400px
 	margin: auto
 	.title
-		color: #888
+		color: lighten($grey, 20%)
 		font-size: 1.8em
 		text-align: center
 	.time
 		font-size: 0.6em
-		color: lighten(#888, 20%)
+		color: lighten($grey, 20%)
 	ul
-		color: #888
+		color: $grey
 		.ms
 			color: #000
-.ping
-	display: inline-block
-	margin: 0 100px
-.result
-	font-size: 0.8em
