@@ -5,5 +5,8 @@
 	%ul	
 		- @host.ping_records.each do |p|
 			%li
-				= "#{p.response_ms} ms"
+				%span.ms
+					= "#{p.response_ms} ms"
 				= "(##{p.response_code})"
+				.time
+					= "#{p.created_at.strftime "%b %d, %a %H:%M:%S"}"
