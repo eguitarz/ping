@@ -11,7 +11,7 @@ class HostsController < ApplicationController
 	end
 
 	def create
-		@host = Host.new params[:host]
+		@host = Host.new params.require(:host).permit(:name, :url)
 		@host.save
 
 		redirect_to :action => :index
@@ -46,4 +46,5 @@ class HostsController < ApplicationController
 
 		{'response_ms'=>duration.floor, 'response_code'=>response.code}
 	end
+
 end
