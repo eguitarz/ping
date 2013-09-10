@@ -4,10 +4,10 @@
 = form_for @host, :url => { :action => 'create' } do |f|
 	%ul.list
 		%li
-			= f.label :name, 'name'
+			= f.label :name, 'NAME'
 			= f.text_field :name
 		%li
-			= f.label :url, 'url'
+			= f.label :url, 'URL'
 			= f.text_field :url
 		%li
 			= f.submit 'create'
