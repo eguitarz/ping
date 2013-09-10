@@ -6,6 +6,17 @@ class HostsController < ApplicationController
 		@hosts = Host.all
 	end
 
+	def new
+		@host = Host.new
+	end
+
+	def create
+		@host = Host.new params[:host]
+		@host.save
+
+		redirect_to :action => :index
+	end
+
 	def show
 		@host = Host.find(params[:id])
 	end
