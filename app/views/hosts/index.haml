@@ -7,6 +7,7 @@
 				= link_to h.name, :action => 'show', :id => h.id
 			.result
 				- ping = h.ping_records.first
-				= "last: #{ping.response_ms} ms (##{ping.response_code})"
+				- if ping
+					= "last: #{ping.response_ms} ms (##{ping.response_code})"
 	%li.action
 		= link_to 'add...', :action => 'new'
