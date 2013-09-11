@@ -6,7 +6,7 @@
 			.item
 				= link_to h.name, :action => 'show', :id => h.id
 				%span.delete
-					= link_to 'delete', host_path(h), :method => 'delete'
+					= link_to 'delete', host_path(h), :remote => true, :method => 'delete'
 			.result
 				- ping = h.ping_records.first
 				- if ping
