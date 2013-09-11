@@ -5,9 +5,12 @@
 		%li 
 			.item
 				= link_to h.name, :action => 'show', :id => h.id
+				/ %span.delete
+				/ 	= link_to 'delete', :action => 'delete'
 			.result
 				- ping = h.ping_records.first
 				- if ping
 					= "last: #{ping.response_ms} ms (##{ping.response_code})"
 	%li.action
 		= link_to 'add...', :action => 'new'
+		%a{:class => 'edit', :href => '#'} edit
