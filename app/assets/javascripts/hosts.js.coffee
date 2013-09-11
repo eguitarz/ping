@@ -5,3 +5,6 @@ $('a.edit').on 'click', (e)->
 	e.preventDefault()
 	e.stopPropagation()
 	$('span.delete').toggleClass('show')
+
+$('.item').on 'ajax:success', (e)->
+	$(@).parent().remove()
