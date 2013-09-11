@@ -21,6 +21,11 @@ class HostsController < ApplicationController
 		@host = Host.find(params[:id])
 	end
 
+	def destroy
+		@host = Host.find(params[:id])
+		@host.destroy
+	end
+
 	def ping
 		@host = Host.find(params[:host_id])
 		response = ping_host(@host)
