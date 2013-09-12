@@ -1,6 +1,7 @@
 = link_to '<< back', :action => 'index'
 .title
 	= @host.name
+#chart
 %ul.host-detail
 	- @host.ping_records.each do |p|
 		%li
@@ -10,5 +11,4 @@
 			.time
 				= "#{p.created_at.strftime "%b %d, %a %H:%M:%S"}"
 :javascript
-	console.log(#{@pings_json})
 	draw(#{@pings_json});
