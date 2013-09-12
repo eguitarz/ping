@@ -19,6 +19,10 @@ class HostsController < ApplicationController
 
 	def show
 		@host = Host.find(params[:id])
+		@pings = @host.ping_records.map do |p|
+			{value: p.response_ms, aa: p.created_at, created_at: p.created_at}
+		end
+		@pings_json = @pings.to_json
 	end
 
 	def destroy

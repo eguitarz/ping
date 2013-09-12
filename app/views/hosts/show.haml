@@ -9,3 +9,6 @@
 			= "(##{p.response_code})"
 			.time
 				= "#{p.created_at.strftime "%b %d, %a %H:%M:%S"}"
+:javascript
+	console.log(#{@pings_json})
+	draw(#{@pings_json});
