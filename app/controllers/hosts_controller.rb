@@ -22,7 +22,7 @@ class HostsController < ApplicationController
 		@pings = @host.ping_records.map do |p|
 			{value: p.response_ms, aa: p.created_at, created_at: p.created_at}
 		end
-		@pings_json = @pings.to_json
+		@pings_json = @pings.take(30).to_json
 	end
 
 	def destroy

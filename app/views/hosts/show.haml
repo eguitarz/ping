@@ -3,7 +3,7 @@
 	= @host.name
 #chart
 %ul.host-detail
-	- @host.ping_records.each do |p|
+	- @host.ping_records.take(30).each do |p|
 		%li
 			%span.ms
 				= "#{p.response_ms} ms"
