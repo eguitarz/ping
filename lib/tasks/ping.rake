@@ -2,7 +2,7 @@ require 'net/http'
 desc 'Ping the hosts every specific time'
 task :ping do
 	past = Time.at(0)
-	duration = 10
+	duration = 30
 
 	while true do
 		now = Time.now
