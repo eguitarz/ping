@@ -14,7 +14,11 @@ bundle install
 
 use
 ===
-```
+```ruby
 rails s
-rake ping
+rake ping # pings every 60 seconds (default)
+
+# or
+
+rake ping[5] # pings every 5 seconds
 ```
