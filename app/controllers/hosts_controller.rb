@@ -1,9 +1,10 @@
 require 'net/http'
 
 class HostsController < ApplicationController
+	before_filter :all, :only => [:index, :ping_all]
+	before_filter :find_one, :only => [:show, :destroy]
 
 	def index
-		@hosts = Host.all
 	end
 
 	def new
@@ -18,7 +19,6 @@ class HostsController < ApplicationController
 	end
 
 	def show
-		@host = Host.find(params[:id])
 		@pings = @host.ping_records.map do |p|
 			{value: p.response_ms, aa: p.created_at, created_at: p.created_at}
 		end
@@ -26,7 +26,6 @@ class HostsController < ApplicationController
 	end
 
 	def destroy
-		@host = Host.find(params[:id])
 		@host.destroy
 
 		render :json => {:status => 'ok'}
@@ -39,7 +38,6 @@ class HostsController < ApplicationController
 	end
 
 	def ping_all
-		@hosts = Host.all
 		@hosts.each do |h|
 			ping_host(h)
 		end
@@ -47,6 +45,14 @@ class HostsController < ApplicationController
 	end
 
 	private 
+	def all
+		@hosts = Host.all
+	end
+
+	def find_one
+		@host = Host.find(params[:id])
+	end
+
 	def ping_host(host)
 		start_at = Time.now
 		response = Net::HTTP.get_response( URI(host.url) )
